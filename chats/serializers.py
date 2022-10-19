@@ -1,15 +1,18 @@
-from dataclasses import field
 from rest_framework import serializers
+from .models import Room, Chat
 
-from .models import Chat, Message
+
+class RoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        fields = ('id', 'name')
+
 
 class ChatSerializer(serializers.ModelSerializer):
+    username = serializers.ReadOnlyField(source='author.username')
+
     class Meta:
         model = Chat
-        fields = ('id', 'title', 'author', 'image')
-        
-
-class MessageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Message
-        fields = '__all__'
+        fields = (
+            'id', 'text', 'room', 'author', 'username',
+        )

@@ -1,38 +1,235 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.app {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #e0943d;
+  box-shadow: inset 42px -42px 84px #1e1e1e,
+            inset -42px 42px 84px #242424;
+  min-height: 100vh;
+}
+
+.title {
+  font-family: 'Permanent Marker', Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  color: #e90f0f;
+  padding: 0 0 0 190px;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  font-family: 'Permanent Marker', Arial, Helvetica, sans-serif;
+  color: #275298;
+}
+
+.subtitle:hover {
+  color: #969696;
+}
+
+.username, .logout {
+  color: #e90f0f;
+  font-size: 20px;
+  /* margin-right: 50px; */
+}
+
+.user-icon {
+  margin-right: 8px;
+}
+
+.username:hover, .logout:hover {
+  color: #9f6767;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.submit {
+  border: 1px solid #e90f0f;
+  background-color: #e90f0f;
+  color: #ffffff;
+}
+
+.submit:hover {
+  border: 1px solid #362209;
+  background-color: #362209;
+  color: #fff;
+}
+
+.links {
+  margin-right: 60px;
+}
+
+.input {
+  background-color: #ffffff;
+  border: 2px solid #969696;
+}
+
+.nav {
+  border-radius: 0px;
+  background: blue;
+  box-shadow: inset 42px -42px 84px #1e1e1e,
+            inset -42px 42px 84px #242424;
+}
+
+.main {
+  width: 80%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #275298;
+  box-shadow: inset 42px -42px 84px #1e1e1e,
+            inset -42px 42px 84px #242424;
+}
+
+.user-login {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.login-form, .register-form {
+  width: 100%;
+  margin: 40px;
+}
+
+.login-title {
+  font-family: 'Permanent Marker', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 30px;
+  color: #e90f0f;
+}
+
+.rooms {
+  width: 20%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  margin: 0;
+  background: #1f1e1e;
+}
+
+.room-li, .new-room-li {
+  width: 100%;
+}
+
+
+
+.room-button {
+  width: 100%;
+  background-color: #71150d;
+  border-color: #71150d;
+  border: solid 1px #212121;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.room-button:hover {
+  background-color: #275298;;
+  border-color: #275298;;
+}
+
+.room-button:focus {
+  background-color: #d02414;
+  border-color: #d02414;
+  color: #fff;
+}
+
+.new-room-button {
+  width: 100%;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.room-dropdown {
+  display: none;
+  width: 100%;
+}
+
+.dropdown-cover {
+  width: 100%;
+  color: #212121;
+  background-color: rgb(198, 198, 36);
+  border-color: #e2a055;
+}
+
+.dropdown-cover:hover {
+  background-color: #e27d0a;
+  border-color: #e27d0a;
+}
+
+.menu {
+  width: 100%;
+  background-color: orange;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menu-item {
+  width: 95%;
+  border-radius: 5px;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu-item:hover {
+  background-color: #e2a055;
 }
 
-.App-header {
-  background-color: #282c34;
+
+.add-room-input {
+  margin-bottom: 5px;
+}
+
+.send-recieve {
+  width: 80%;
+  padding: 10px 0 0 0;
+  border-radius: 0px;
+  background: #275298;
+  box-shadow: inset 42px -42px 84px #1e1e1e,
+            inset -42px 42px 84px #242424;
+}
+
+.message {
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #71150d;
+  color: #fff;
+  padding: 10px;
+}
+
+.edit-box {
+  text-align: right;
+  color: #999999;
+  font-size: 18px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.messeger {
+  width: 100%;
+  padding: 0 10px 30px 10px;
+  background: #1f1e1e;
+  position: sticky;
+  bottom: 0;
+}
+
+.send-button {
+  width: 100%;
+}
+
+.padding {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.trash {
+  cursor: pointer;
 }

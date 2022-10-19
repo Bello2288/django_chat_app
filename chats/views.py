@@ -1,29 +1,25 @@
 from rest_framework import generics
-
-from .models import Chat, Message
-from .serializers import ChatSerializer, MessageSerializer
+from .models import Room, Chat
+from .serializers import RoomSerializer, ChatSerializer
 from .permissions import IsAuthorOrReadOnly
 
 # Create your views here.
 
 
-class ChatListAPIView(generics.ListAPIView):
-    queryset = Chat.objects.all()
+class RoomListAPIView(generics.ListCreateAPIView):
+    queryset = Room.objects.all()
+    serializer_class = RoomSerializer
+
+
+class ChatListAPIView(generics.ListCreateAPIView):
     serializer_class = ChatSerializer
-
-
-class MessageListAPIView(generics.ListCreateAPIView):
-    serializer_class = MessageSerializer
-
-    def get_queryset(self):
-        chat = self.kwargs['chat']
-        return Message.objects.filter(chat=chat)
+    queryset = Chat.objects.all()
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
 
-class MessageDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
+class ChatDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Chat.objects.all()
+    serializer_class = ChatSerializer
     permission_classes = (IsAuthorOrReadOnly,)
